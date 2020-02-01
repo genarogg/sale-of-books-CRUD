@@ -1,9 +1,15 @@
 import React from 'react';
 
+/* Redux */
+import { Provider } from "react-redux"
+import store from "./store"
+
 
 function App() {
   return (
-    <p>Crud</p>
+    <Provider store={store}>
+      <p>crud</p>
+    </Provider>
   );
 }
 
