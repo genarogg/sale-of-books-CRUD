@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+ 
 
 /* Redux */
 import { Provider } from "react-redux";
@@ -30,6 +31,6 @@ function App() {
       </Provider>
     </Router>
   );
-}
+} 
 
 export default App;

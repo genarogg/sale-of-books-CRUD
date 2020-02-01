@@ -1,0 +1,15 @@
+{
+  "libros": [
+      {
+          "id": 1,
+          "nombre": "Aprendiendo Redux",
+          "precio": 30
+      },
+
+      {
+          "id": 2,
+          "nombre": "React y Redux",
+          "precio": 40
+      }
+  ]
+}
