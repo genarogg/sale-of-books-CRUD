@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,7 +8,20 @@ const Header = () => {
                     navbar-dark bg-primary
                     justify-content-between"
     >
-      <h1>CRUD - React, Redux Hooks, REST API</h1>
+      <div className="container">
+        <h1>
+          <Link to={"/"} className="text-light">
+            CRUD - React, Redux Hooks, REST API
+          </Link>
+        </h1>
+
+        <Link
+          to={"/productos/nuevo"}
+          className="btn btn-danger nuevo-post d-block d-md-inline-block"
+        >
+          Agregar Producto &#43;
+        </Link>
+      </div>
     </nav>
   );
 };
