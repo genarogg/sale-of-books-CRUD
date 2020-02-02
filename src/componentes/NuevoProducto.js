@@ -1,19 +1,28 @@
 import React, { useState } from "react";
-
+/* Redux */
+import { crearNuevoProductoAction } from "../actions/productosActions";
+import { useDispatch } from "react-redux";
 
 const NuevoProducto = () => {
-
   /* sate */
   const [nombre, guardarNombre] = useState("");
   const [precio, guardarPrecio] = useState("");
 
+  /* Crear nuevo producto */
+  const dispatch = useDispatch();
+  const agregarProducto = producto => dispatch(crearNuevoProductoAction());
   /* Agregando nuevo producto */
 
   const submitNuevoProducto = e => {
     e.preventDefault();
 
+    agregarProducto({
+      nombre,
+      precio
+    });
+
     /* Validar el formulario */
-    if(nombre.trim() === "" || precio.trim() === "" ) {
+    if (nombre.trim() === "" || precio.trim() === "") {
       console.log("error al validar");
       return;
     }
@@ -22,8 +31,7 @@ const NuevoProducto = () => {
     /* Crear el nuevo producto */
 
     /* Redireccionar */
-
-  }
+  };
   return (
     <div className="row justify-content-center mt-5">
       <div className="col-md-8">
@@ -40,7 +48,7 @@ const NuevoProducto = () => {
                   className="form-control"
                   placeholder="Nombre Libro"
                   value={nombre}
-                  onChange={ e => guardarNombre(e.target.value) }
+                  onChange={e => guardarNombre(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -50,7 +58,7 @@ const NuevoProducto = () => {
                   className="form-control"
                   placeholder="Precio Libro"
                   value={precio}
-                  onChange={ e => guardarPrecio(e.target.value) }
+                  onChange={e => guardarPrecio(e.target.value)}
                 />
               </div>
 
