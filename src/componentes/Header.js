@@ -3,15 +3,11 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav
-      className="navbar navbar-expand-lg 
-                    navbar-dark bg-primary
-                    justify-content-between"
-    >
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
       <div className="container">
         <h1>
           <Link to={"/"} className="text-light">
-            CRUD - React, Redux Hooks, REST API
+            CRUD - React, Redux Hooks, REST API y Axios
           </Link>
         </h1>
 

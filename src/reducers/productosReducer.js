@@ -6,34 +6,31 @@ import {
 
 /* cada reducer tiene su propio state */
 const initialState = {
-    productos: [],
-    error: null,
-    loading: false
-}
+  productos: [],
+  error: null,
+  loading: false
+};
 
-export default function ( state = initialState, action){
-    switch(action.type){
-        case AGREGAR_PRODUCTO:
-            return {
-                ...state,
-                error: null,
-                productos: [...state.productos, action.payload]
-            }
-        case AGREGAR_PRODUCTO_EXITO:
-            return{
-                ...state,
-                error: null,
-                productos: [...state.productos, action.payload]
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case AGREGAR_PRODUCTO:
+      return {
+        ...state,
+        error: null
+      };
+    case AGREGAR_PRODUCTO_EXITO:
+      return {
+        ...state,
+        error: null,
+        productos: [...state.productos, action.payload]
+      };
+    case AGREGAR_PRODUCTO_ERROR:
+      return {
+        ...state,
+        error: true
+      };
 
-            }
-
-        case AGREGAR_PRODUCTO_ERROR:
-            return{
-                ...state,
-                error: true
-            }
-        
-        default:
-            return state
-    }
+    default:
+      return state;
+  }
 }

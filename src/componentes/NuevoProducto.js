@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 
 const NuevoProducto = () => {
   /* sate */
-  const [nombre, guardarNombre] = useState("");
-  const [precio, guardarPrecio] = useState("");
+  const [nombre, guardarNombre] = useState('');
+    const [precio, guardarPrecio] = useState('');
 
   /* Crear nuevo producto */
   const dispatch = useDispatch();
-  const agregarProducto = producto => dispatch(crearNuevoProductoAction());
+  const agregarProducto = (producto) => dispatch(  crearNuevoProductoAction(producto) );
   /* Agregando nuevo producto */
 
   const submitNuevoProducto = e => {

@@ -1,15 +1,49 @@
 {
   "libros": [
-      {
-          "id": 1,
-          "nombre": "Aprendiendo Redux",
-          "precio": 30
-      },
-
-      {
-          "id": 2,
-          "nombre": "React y Redux",
-          "precio": 40
-      }
+    {
+      "id": 1,
+      "nombre": "Aprendiendo Redux",
+      "precio": 30
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "nombre": "genarogg",
+      "precio": "33",
+      "id": 12
+    },
+    {
+      "nombre": "genarogg",
+      "precio": "33",
+      "id": 13
+    }
   ]
 }
