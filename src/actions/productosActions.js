@@ -4,6 +4,7 @@ import {
     AGREGAR_PRODUCTO_ERROR
   } from "../types";
 
+  import clienteAxios from "../config/axios"
 
 /* Crear un nuevo producto - Funcion principal */
 
