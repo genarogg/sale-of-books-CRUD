@@ -5,7 +5,7 @@ import {
   } from "../types";
 
 export function validarFormularioAction(){
-    return () => {
+    return (dispatch) => {
         dispatch( iniciarValidacion() )
     }
 }
@@ -14,4 +14,4 @@ export const iniciarValidacion = () => {
     return {
         type: VALIDAR_FORMULARIO
     }
-}
+} 

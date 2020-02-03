@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 /* Redux */
 import { crearNuevoProductoAction } from "../actions/productosActions";
+import { validarFormularioAction } from "../actions/validacionActions";
 import { useDispatch } from "react-redux";
 
 const NuevoProducto = () => {
   /* sate */
-  const [nombre, guardarNombre] = useState('');
-    const [precio, guardarPrecio] = useState('');
+  const [nombre, guardarNombre] = useState("");
+  const [precio, guardarPrecio] = useState("");
 
   /* Crear nuevo producto */
   const dispatch = useDispatch();
-  const agregarProducto = (producto) => dispatch(  crearNuevoProductoAction(producto) );
+  const agregarProducto = producto =>
+    dispatch(crearNuevoProductoAction(producto));
+  const validarFormulario = () => dispatch(validarFormularioAction());
   /* Agregando nuevo producto */
 
   const submitNuevoProducto = e => {
     e.preventDefault();
 
-    agregarProducto({
-      nombre,
-      precio
-    });
+    validarFormulario();
 
     /* Validar el formulario */
     if (nombre.trim() === "" || precio.trim() === "") {
@@ -27,7 +27,10 @@ const NuevoProducto = () => {
       return;
     }
     /* Si pasa la validacion */
-
+    agregarProducto({
+      nombre,
+      precio
+    });
     /* Crear el nuevo producto */
 
     /* Redireccionar */
