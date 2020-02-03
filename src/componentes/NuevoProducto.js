@@ -8,7 +8,7 @@ import {
 } from "../actions/validacionActions";
 import { useDispatch, useSelector } from "react-redux";
 
-const NuevoProducto = () => {
+const NuevoProducto = ({history}) => {
   /* sate */
   const [nombre, guardarNombre] = useState("");
   const [precio, guardarPrecio] = useState("");
@@ -45,6 +45,7 @@ const NuevoProducto = () => {
     /* Crear el nuevo producto */
 
     /* Redireccionar */
+    history.push("/")
   };
   return (
     <div className="row justify-content-center mt-5">
@@ -83,6 +84,7 @@ const NuevoProducto = () => {
                 Agregar
               </button>
             </form>
+            { error ? <div className="font-weight-bold alert alert-danger text-center mt-4">Todos los campos son obligatorios</div> : null }
           </div>
         </div>
       </div>
