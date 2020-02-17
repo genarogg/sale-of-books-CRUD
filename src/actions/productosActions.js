@@ -49,35 +49,44 @@ export const agregarProductoError = error => ({
 
 /* Obtener Listado de Productos (consultar API) */
 
-export function obtenerProductosAction(){
-  return(dispatch) => {
-    dispatch(obtenerProductosComienzo())
+export function obtenerProductosAction() {
+  return dispatch => {
+    dispatch(obtenerProductosComienzo());
 
     /* Consultar API */
-    clienteAxios.get("/libros")
+    clienteAxios
+      .get("/libros")
       .then(respuesta => {
         /* console.log(respuesta) */
-        dispatch( descargaProductosExitosa(respuesta.data))
+        dispatch(descargaProductosExitosa(respuesta.data));
       })
       .catch(error => {
         /* console.log(error) */
-        dispatch(descargaProductosError())
-      })
-  }
+        dispatch(descargaProductosError());
+      });
+  };
 }
 
 export const obtenerProductosComienzo = () => ({
   type: COMENZAR_DESCARGA_PRODUCTOS
-})
+});
 
 export const descargaProductosExitosa = productos => ({
   type: DESCARGA_PRODUCTOS_EXITOSA,
   payload: productos
-})
+});
 
 export const descargaProductosError = () => ({
   type: DESCARGA_PRODUCTOS_ERROR
-})
-
+});
 
 /* Funcion que elimina un producto en especifico */
+export function borrarProductoAction(id) {
+  return dispatch => {
+    dispatch(obtenerProductoEliminar());
+  };
+}
+
+export const obtenerProductoEliminar = () => ({
+  type: OBTENER_PRODUCTO_ELIMINAR
+});
