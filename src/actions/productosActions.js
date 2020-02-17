@@ -4,7 +4,10 @@ import {
   AGREGAR_PRODUCTO_ERROR,
   COMENZAR_DESCARGA_PRODUCTOS,
   DESCARGA_PRODUCTOS_EXITOSA,
-  DESCARGA_PRODUCTOS_ERROR
+  DESCARGA_PRODUCTOS_ERROR,
+  OBTENER_PRODUCTO_ELIMINAR,
+  PRODUCTO_ELIMINAR_EXITO,
+  PRODUCTO_ELIMINAR_ERROR
 } from "../types";
 
 import clienteAxios from "../config/axios";
@@ -75,3 +78,6 @@ export const descargaProductosExitosa = productos => ({
 export const descargaProductosError = () => ({
   type: DESCARGA_PRODUCTOS_ERROR
 })
+
+
+/* Funcion que elimina un producto en especifico */
