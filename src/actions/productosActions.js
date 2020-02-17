@@ -89,13 +89,14 @@ export function borrarProductoAction(id) {
     dispatch(obtenerProductoEliminar());
 
     /* Eliminar  en le API */
-    clienteAxios.delete(`/libros/${id}`)
+    clienteAxios
+      .delete(`/libros/${id}`)
       .then(respuesta => {
-        dispatch(eliminarProductoExito(id))
+        dispatch(eliminarProductoExito(id));
       })
-      .catch(error =>{
-        dispatch(eliminarProductoError())
-      })
+      .catch(error => {
+        dispatch(eliminarProductoError());
+      });
   };
 }
 
@@ -106,19 +107,40 @@ export const obtenerProductoEliminar = () => ({
 export const eliminarProductoExito = id => ({
   type: PRODUCTO_ELIMINAR_EXITO,
   payload: id
-})
+});
 
 export const eliminarProductoError = () => ({
   type: PRODUCTO_ELIMINAR_ERROR
-})
+});
 
 /* Obtener el Producto a editar */
-export function obtenerProductoEditar(id){
-  return (dispatch) => {
-    dispatch(obtenerProductoAction())
-  }
+export function obtenerProductoEditarAction(id) {
+  return dispatch => {
+    dispatch(obtenerProductoAction());
+
+    /* obtenr producto de la api */
+    clienteAxios
+      .get(`/libros/${id}`)
+      .then(respuesta => {
+        console.log(respuesta.data);
+        dispatch(obtenerProductoEditarExito(respuesta.data))
+      })
+      .catch(error => {
+        console.log(error);
+        dispatch(obtenerProductoEditarError())
+      });
+  };
 }
 
 export const obtenerProductoAction = () => ({
   type: OBTENER_PRODUCTO_EDITAR
+});
+
+export const obtenerProductoEditarExito = producto => ({
+  type: PRODUCTO_EDITAR_EXITO,
+  payload: producto
+});
+
+export const obtenerProductoEditarError = () => ({
+  type: PRODUCTO_EDITAR_ERROR
 })
