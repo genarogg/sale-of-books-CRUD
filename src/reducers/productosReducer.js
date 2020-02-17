@@ -10,7 +10,10 @@ import {
   PRODUCTO_ELIMINAR_ERROR,
   OBTENER_PRODUCTO_EDITAR,
   PRODUCTO_EDITAR_EXITO,
-  PRODUCTO_EDITAR_ERROR
+  PRODUCTO_EDITAR_ERROR,
+  COMENZAR_EDICION_PRODUCTO,
+  PRODUCTO_EDITADO_EXITO,
+  PRODUCTO_EDITADO_ERROR
 } from "../types";
 
 /* cada reducer tiene su propio state */
@@ -85,21 +88,42 @@ export default function(state = initialState, action) {
       };
 
     case OBTENER_PRODUCTO_EDITAR:
-      return{
+      return {
         ...state,
-        error:null
-      }
-      case PRODUCTO_EDITAR_EXITO:
-      return{
+        error: null
+      };
+    case PRODUCTO_EDITAR_EXITO:
+      return {
         ...state,
-        error:null,
+        error: null,
         producto: action.payload
-      }
-      case PRODUCTO_EDITAR_ERROR:
-      return{
+      };
+    case PRODUCTO_EDITAR_ERROR:
+      return {
         ...state,
-        error:true
-      }
+        error: true
+      };
+    case COMENAR_EDICION_PRODUCTO:
+      return {
+        ...state,
+        error: null
+      };
+    case PRODUCTO_EDITADO_EXITO:
+      return {
+        ...state,
+        error: null,
+        productos: tate.producto.map(producto =>
+          producto.id === action.payload.id
+            ? (producto = action.payload)
+            : producto
+        )
+      };
+
+    case PRODUCTO_EDITADO_ERROR:
+      return {
+        ...state,
+        error: true
+      };
     default:
       return state;
   }

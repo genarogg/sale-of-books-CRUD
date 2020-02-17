@@ -2,7 +2,7 @@ import React, { useEffect, Fragment } from "react";
 
 /* Redux */
 import { useDispatch, useSelector } from "react-redux";
-import { obtenerProductoEditarAction } from "../actions/productosActions";
+import { obtenerProductoEditarAction, editarProductoAction } from "../actions/productosActions";
 
 const EditarProucto = ({ match }) => {
   /* Dispatch para ejecutar la accion principal */
