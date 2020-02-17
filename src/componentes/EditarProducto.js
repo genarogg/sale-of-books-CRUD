@@ -1,12 +1,19 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect, Fragment, useRef } from "react";
 
 /* Redux */
 import { useDispatch, useSelector } from "react-redux";
 import { obtenerProductoEditarAction, editarProductoAction } from "../actions/productosActions";
 
 const EditarProucto = ({ match }) => {
+
+  /* Crear los refs */
+  const nombreRef = useRef("");
+  const precioRef = useRef("")
+
   /* Dispatch para ejecutar la accion principal */
   const dispatch = useDispatch();
+
+  const editarProducto = (producto) => dispatch(editarProductoAction(producto))
 
   /* Obtener el ID a editar */
   const { id } = match.params;
@@ -19,7 +26,21 @@ const EditarProucto = ({ match }) => {
   const producto = useSelector(state => state.productos.producto);
   const error = useSelector ( state => state.productos.error)
 
-  /* Cuando  */
+  /* Cuando carga la API */
+  if(!producto) return "cargando...";
+
+  const submitEditarProducto = e => {
+    e.preventDefault()
+
+    /* validar el formulario */
+
+    /* no hay error */
+
+    /* guardar los cambios */
+
+    /* Redirecionar */
+  }
+
   return (
     <Fragment>
       {error ? (
