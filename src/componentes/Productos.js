@@ -16,8 +16,12 @@ const Productos = () => {
 
   /* Acceder al state */
   const loading = useSelector(state => state.productos.loading);
+  const error = useSelector( state => state.productos.error)
   return (
     <React.Fragment>
+      {error ? <div className="font-weight-bold alert alert-danger text-center">Hubo un error...</div> 
+      :
+      <React.Fragment>
       <h2 className="text-center my-5">Listado de Productos</h2>
       <table className="table table-striped">
         <thead className="bg-primary table-dark">
@@ -30,6 +34,8 @@ const Productos = () => {
         <tbody></tbody>
       </table>
       {loading ? "Cargando..." : null}
+      </React.Fragment>
+      }
     </React.Fragment>
   );
 };
