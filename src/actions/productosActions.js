@@ -7,7 +7,10 @@ import {
   DESCARGA_PRODUCTOS_ERROR,
   OBTENER_PRODUCTO_ELIMINAR,
   PRODUCTO_ELIMINAR_EXITO,
-  PRODUCTO_ELIMINAR_ERROR
+  PRODUCTO_ELIMINAR_ERROR,
+  OBTENER_PRODUCTO_EDITAR,
+  PRODUCTO_EDITAR_EXITO,
+  PRODUCTO_EDITAR_ERROR
 } from "../types";
 
 import clienteAxios from "../config/axios";
@@ -88,12 +91,10 @@ export function borrarProductoAction(id) {
     /* Eliminar  en le API */
     clienteAxios.delete(`/libros/${id}`)
       .then(respuesta => {
-        console.log(respuesta)
         dispatch(eliminarProductoExito(id))
       })
       .catch(error =>{
         dispatch(eliminarProductoError())
-        console.log(error)
       })
   };
 }
@@ -109,4 +110,15 @@ export const eliminarProductoExito = id => ({
 
 export const eliminarProductoError = () => ({
   type: PRODUCTO_ELIMINAR_ERROR
+})
+
+/* Obtener el Producto a editar */
+export function obtenerProductoEditar(id){
+  return (dispatch) => {
+    dispatch(obtenerProductoAction())
+  }
+}
+
+export const obtenerProductoAction = () => ({
+  type: OBTENER_PRODUCTO_EDITAR
 })

@@ -4,10 +4,13 @@ import {
   AGREGAR_PRODUCTO_ERROR,
   COMENZAR_DESCARGA_PRODUCTOS,
   DESCARGA_PRODUCTOS_EXITOSA,
-  DESCARGA_PRODUCTOS_ERROR ,
+  DESCARGA_PRODUCTOS_ERROR,
   OBTENER_PRODUCTO_ELIMINAR,
   PRODUCTO_ELIMINAR_EXITO,
-  PRODUCTO_ELIMINAR_ERROR
+  PRODUCTO_ELIMINAR_ERROR,
+  OBTENER_PRODUCTO_EDITAR,
+  PRODUCTO_EDITAR_EXITO,
+  PRODUCTO_EDITAR_ERROR
 } from "../types";
 
 /* cada reducer tiene su propio state */
@@ -37,44 +40,62 @@ export default function(state = initialState, action) {
       };
 
     case COMENZAR_DESCARGA_PRODUCTOS:
-      return{
+      return {
         ...state,
         loading: true
-      }
+      };
     case DESCARGA_PRODUCTOS_EXITOSA:
-      return{
+      return {
         ...state,
         productos: action.payload,
         loading: false,
         error: false
-      }
+      };
     case DESCARGA_PRODUCTOS_ERROR:
       return {
         ...state,
         productos: [],
         error: true,
         loading: false
-      }
+      };
 
     case OBTENER_PRODUCTO_ELIMINAR:
-      return{
+      return {
         ...state,
         error: null
-      }
+      };
 
-    case PRODUCTO_ELIMINAR_EXITO: 
-      return{
+    case PRODUCTO_ELIMINAR_EXITO:
+      return {
         ...state,
         error: null,
-        productos: state.productos.filter(producto => producto.id !== action.payload)
-      }
-    
-      case PRODUCTO_ELIMINAR_ERROR:
-        return {
-          ...state,
-          error: true
-        }
+        productos: state.productos.filter(
+          producto => producto.id !== action.payload
+        )
+      };
 
+    case PRODUCTO_ELIMINAR_ERROR:
+      return {
+        ...state,
+        error: true
+      };
+
+    case OBTENER_PRODUCTO_EDITAR:
+      return{
+        ...state,
+        error:null
+      }
+      case PRODUCTO_EDITAR_EXITO:
+      return{
+        ...state,
+        error:null,
+        producto: action.payload
+      }
+      case PRODUCTO_EDITAR_ERROR:
+      return{
+        ...state,
+        error:true
+      }
     default:
       return state;
   }
