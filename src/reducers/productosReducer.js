@@ -2,7 +2,7 @@ import {
   AGREGAR_PRODUCTO,
   AGREGAR_PRODUCTO_EXITO,
   AGREGAR_PRODUCTO_ERROR,
-  COMENZAR_DISCARGAR_PRODUCTOS,
+  COMENZAR_DESCARGA_PRODUCTOS,
   DESCARGA_PRODUCTOS_EXITOSA,
   DESCARGA_PRODUCTOS_ERROR 
 } from "../types";
@@ -33,7 +33,7 @@ export default function(state = initialState, action) {
         error: true
       };
 
-    case COMENZAR_DISCARGAR_PRODUCTOS:
+    case COMENZAR_DESCARGA_PRODUCTOS:
       return{
         ...state,
         loading: true
