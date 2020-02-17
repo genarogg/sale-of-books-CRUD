@@ -4,11 +4,6 @@
       "id": 1,
       "nombre": "Aprendiendo Redux",
       "precio": 30
-    },
-    {
-      "nombre": "g",
-      "precio": "3",
-      "id": 2
     }
   ]
 }
