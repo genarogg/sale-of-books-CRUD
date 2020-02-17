@@ -13,6 +13,7 @@ const Producto = ({producto}) => {
 
                 Editar
                 </Link>
+                <button className="btn btn-danger">Eliminar</button>
             </td>
         </tr>
     )
