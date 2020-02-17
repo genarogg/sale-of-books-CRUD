@@ -92,6 +92,7 @@ export function borrarProductoAction(id) {
         dispatch(eliminarProductoExito(id))
       })
       .catch(error =>{
+        dispatch(eliminarProductoError())
         console.log(error)
       })
   };
@@ -104,4 +105,8 @@ export const obtenerProductoEliminar = () => ({
 export const eliminarProductoExito = id => ({
   type: PRODUCTO_ELIMINAR_EXITO,
   payload: id
+})
+
+export const eliminarProductoError = () => ({
+  type: PRODUCTO_ELIMINAR_ERROR
 })
