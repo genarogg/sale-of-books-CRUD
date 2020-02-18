@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const clienteAxios = axios.create({
-    baseURL: 'http://localhost:4000'
+    baseURL: "https://my-json-server.typicode.com/genarogg/sale-of-books-CRUD/"
 });
 
 export default clienteAxios;

@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { obtenerProductoEditarAction, editarProductoAction } from '../actions/productosActions';
 import { validarFormularioAction, validacionExito, validacionError } from '../actions/validacionActions';
 
-import Swal from 'sweetalert2';
-
 const EditarProducto = ({ history, match }) => {
 
     // Crear los refs
