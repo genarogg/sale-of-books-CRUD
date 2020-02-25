@@ -90,3 +90,15 @@ h1 a.text-light:hover {
     
   }
 }
+
+/* Footer */
+footer{
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  background-color: #000;
+  width: 100%;
+  text-align: center;
+  height: 30px;
+}
+

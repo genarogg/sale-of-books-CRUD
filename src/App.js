@@ -8,6 +8,7 @@ import store from './store';
 
 // Componentes
 import Header from './componentes/Header';
+import Footer from './componentes/Footer';
 import NuevoProducto from './componentes/NuevoProducto';
 import Productos from './componentes/Productos';
 import EditarProducto from './componentes/EditarProducto';
@@ -17,7 +18,7 @@ function App() {
   return (
     <Router>
 
-      <Provider store={store}>
+      <Provider  store={store} >
           <Header />
           <div className="container">
               <Switch>
@@ -26,6 +27,7 @@ function App() {
                   <Route exact path="/productos/editar/:id" component={EditarProducto} />
               </Switch>
           </div>
+          <Footer/>
       </Provider>
     </Router>
   
